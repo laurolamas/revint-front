@@ -1,113 +1,122 @@
-import Image from 'next/image'
+"use client";
+
+import Card from "./components/card";
+import { useState, useEffect } from "react";
+
+/* const products = [
+  {
+    id: 1,
+    name: "Campera",
+    description: "Impecable, muy poco uso",
+    images: [
+      "/test-image.jpg",
+      "https://storagerevint.blob.core.windows.net/images/image1697055983147.jpg",
+    ],
+    price: 100,
+    tags: ["fashion", "jacket", "outerwear"],
+  },
+  {
+    id: 2,
+    name: "Denim Jeans",
+    description: "Classic blue jeans, perfect for any occasion",
+    images: [
+      "/test-image.jpg",
+      "https://storagerevint.blob.core.windows.net/images/image1697055983147.jpg",
+    ],
+    price: 50,
+    tags: ["fashion", "jeans", "bottoms"],
+  },
+  {
+    id: 3,
+    name: "Striped T-Shirt",
+    description: "Comfortable and stylish striped t-shirt",
+    images: [
+      "/test-image.jpg",
+      "https://storagerevint.blob.core.windows.net/images/image1697055983147.jpg",
+    ],
+    price: 25,
+    tags: ["fashion", "t-shirt", "tops"],
+  },
+  {
+    id: 4,
+    name: "Summer Dress",
+    description: "Flowy and elegant dress for summer days",
+    images: ["/test-image.jpg", "/test-image.jpg"],
+    price: 60,
+    tags: ["fashion", "dress", "summer"],
+  },
+  {
+    id: 5,
+    name: "Leather Jacket",
+    description: "Stylish black leather jacket for a cool look",
+    images: ["/test-image.jpg", "/test-image.jpg"],
+    price: 120,
+    tags: ["fashion", "jacket", "outerwear"],
+  },
+  {
+    id: 6,
+    name: "Hoodie",
+    description: "Warm and comfortable hoodie for casual days",
+    images: ["/test-image.jpg", "/test-image.jpg"],
+    price: 40,
+    tags: ["fashion", "hoodie", "outerwear"],
+  },
+  {
+    id: 7,
+    name: "Sneakers",
+    description: "Sporty sneakers for an active lifestyle",
+    images: ["/test-image.jpg", "/test-image.jpg"],
+    price: 70,
+    tags: ["fashion", "footwear", "sports"],
+  },
+  {
+    id: 8,
+    name: "Beanie",
+    description: "Cozy beanie to keep you warm in the winter",
+    images: ["/test-image.jpg", "/test-image.jpg"],
+    price: 15,
+    tags: ["fashion", "accessories", "winter"],
+  },
+  {
+    id: 9,
+    name: "Plaid Shirt",
+    description: "Classic plaid shirt for a timeless look",
+    images: ["/test-image.jpg", "/test-image.jpg"],
+    price: 35,
+    tags: ["fashion", "shirt", "tops"],
+  },
+  {
+    id: 10,
+    name: "Sunglasses",
+    description: "Stylish sunglasses to complete your outfit",
+    images: ["/test-image.jpg", "/test-image.jpg"],
+    price: 20,
+    tags: ["fashion", "accessories", "summer"],
+  },
+]; */
 
 export default function Home() {
+  const [products, setProducts] = useState([]);
+
+  const fetchProducts = async () => {
+    // fetch including cors header
+    const res = await fetch("http://localhost:5000/products");
+    const data = await res.json();
+    setProducts(data);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <>
+      <div className="flex flex-row flex-wrap justify-center">
+        {products.map((product) => (
+          <Card product={product} key={product._id} />
+        ))}
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </>
+  );
 }
