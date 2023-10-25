@@ -3,7 +3,7 @@
 import Card from "./components/card";
 import { useState, useEffect } from "react";
 
-/* const products = [
+ const products = [
   {
     id: 1,
     name: "Campera",
@@ -93,10 +93,10 @@ import { useState, useEffect } from "react";
     price: 20,
     tags: ["fashion", "accessories", "summer"],
   },
-]; */
+]; 
 
 export default function Home() {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
     const res = await fetch("http://localhost:5000/products");
@@ -104,9 +104,9 @@ export default function Home() {
     setProducts(data);
   };
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, []);
 
   return (
     <>
