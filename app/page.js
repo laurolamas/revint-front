@@ -3,7 +3,7 @@
 import Card from "./components/card";
 import { useState, useEffect } from "react";
 
-/* const products = [
+ const products = [
   {
     id: 1,
     name: "Campera",
@@ -93,22 +93,22 @@ import { useState, useEffect } from "react";
     price: 20,
     tags: ["fashion", "accessories", "summer"],
   },
-]; */
+]; 
 
 export default function Home() {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  const fetchProducts = async () => {
-    // fetch including cors header
-    const res = await fetch("http://localhost:5000/products");
-    const data = await res.json();
-    setProducts(data);
-    console.log(data);
-  };
+  // const fetchProducts = async () => {
+  //   // fetch including cors header
+  //   const res = await fetch("http://localhost:5000/products");
+  //   const data = await res.json();
+  //   setProducts(data);
+  //   console.log(data);
+  // };
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, []);
 
   return (
     <>
