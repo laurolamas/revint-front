@@ -18,11 +18,20 @@ export default function Home() {
         fetchProducts();
     }, []);
 
+    const deleteFavourite = (product_id) => {
+        const copy = [...products]
+        const filteredProducts = copy.filter((product) => {
+            product._id !== product_id
+        })
+        setProducts(filteredProducts);
+        console.log(filteredProducts);
+    }
+
     return (
         <>
             <div className="flex flex-col justify-center items-center">
                 {products.map((product) => (
-                    <Card product={product} key={product._id} />
+                    <Card product={product} key={product._id} deleteFavourite={deleteFavourite} />
                 ))}
             </div>
         </>
