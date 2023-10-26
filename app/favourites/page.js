@@ -20,7 +20,9 @@ export default function Home() {
 
     const deleteFavourite = (product_id) => {
         const copy = [...products];
-        const filteredProducts = copy.filter((product) => product._id !== product_id);
+        const filteredProducts = copy.filter((product) => {
+            return product._id !== product_id
+        });
         setProducts(filteredProducts);
         console.log(filteredProducts);
     }
