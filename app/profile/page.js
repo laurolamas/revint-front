@@ -39,9 +39,7 @@ export default function ProfilePage() {
     <div>
       <h1>Profile Page</h1>
       <h2>User Info</h2>
-      {/* <p>{profileData.name}</p> */}
-      <p>pepito</p>
-
+      <p>{profileData.name}</p>
       <p>{profileData.email}</p>
       <Image
         src={profileData.imageUrl || "/user.png"}
