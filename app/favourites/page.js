@@ -7,7 +7,7 @@ export default function Home() {
     const [products, setProducts] = useState([]);
 
     const fetchProducts = async () => {
-        // fetch including cors header
+        // fetch including cors headers
         const res = await fetch("http://localhost:5000/products");
         const data = await res.json();
         setProducts(data);

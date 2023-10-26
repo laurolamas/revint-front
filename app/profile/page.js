@@ -9,19 +9,21 @@ export default function ProfilePage() {
   const [showModal, setShowModal] = useState(false);
   const [currentProduct, setCurrentProduct] = useState({});
   const [profileData, setProfileData] = useState({});
-  const testUserId = "652491720504dbe29f7cba54";
+  const testUserId = "6532cc0ecd1c9d2b0993962a"; // Usuario de prueba
 
   const fetchInfo = async () => {
     // Fetch data from external API
     const profileData = await fetch(
       `http://localhost:5000/users/${testUserId}`
-    ).then((res) => res.json());
+    ).then((res) => res.json())
+      .catch((err) => console.log(err));
 
     const userProducts = await fetch(
-      `http://localhost:5000/products/user/${testUserId}`
-    ).then((res) => res.json());
+      `http://localhost:5000/products/users/${testUserId}`
+    ).then((res) => res.json())
+      .catch((err) => [])
 
-    console.log(profileData, userProducts);
+    console.log("fetch", profileData, userProducts);
     setProfileData(profileData);
     setUserProducts(userProducts);
   };
@@ -39,8 +41,7 @@ export default function ProfilePage() {
     <div>
       <h1>Profile Page</h1>
       <h2>User Info</h2>
-      {/* <p>{profileData.name}</p> */}
-      <p>pepito</p>
+      <p>{profileData.name}</p>
 
       <p>{profileData.email}</p>
       <Image
