@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="hero max-h-screen bg-base-200">
@@ -39,7 +41,9 @@ export default function Home() {
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Iniciar Sesion</button>
-              <button className="btn btn-terciary">No tienes una cuenta?</button>
+              <Link href="/register">
+              <button className="btn">No tienes una cuenta?</button>
+              </Link>
             </div>
           </form>
         </div>
