@@ -9,7 +9,7 @@ export default function ProfilePage() {
   const [showModal, setShowModal] = useState(false);
   const [currentProduct, setCurrentProduct] = useState({});
   const [profileData, setProfileData] = useState({});
-  const testUserId = "6532cc0ecd1c9d2b0993962a"; // Usuario de prueba
+  const testUserId = "653ad2e2208bd991737b9983"; // Usuario de prueba
 
   const fetchInfo = async () => {
     // Fetch data from external API
@@ -27,6 +27,7 @@ export default function ProfilePage() {
     setProfileData(profileData);
     setUserProducts(userProducts);
   };
+  console.log(profileData);
 
   useEffect(() => {
     fetchInfo();
