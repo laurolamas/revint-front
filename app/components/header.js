@@ -29,13 +29,13 @@ export default function Header() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link href="/">Homepage</Link>
+              <Link href="/home">Homepage</Link>
             </li>
             <li>
               <a>Portfolio</a>
             </li>
             <li>
-              <Link href="/components/about">about</Link>
+              <Link href="/about">about</Link>
             </li>
           </ul>
         </div>
@@ -67,7 +67,7 @@ export default function Header() {
       </div>
       <div className="navbar-center">
         <button className="btn btn-circle btn-ghost hover:opacity-90">
-          <Link href="/">
+          <Link href="/home">
             <Image src={logo} alt="Logo Revint" width={400} height={400} />
           </Link>
         </button>
