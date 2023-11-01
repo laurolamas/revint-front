@@ -1,16 +1,16 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left">
+    <div className="hero max-h-screen bg-base-200">
+      <div className="hero-content flex-wrap lg:flex-row">
+        <div>
           <h1 className="text-5xl font-bold">ReVint</h1>
           <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Inicio de sesión
           </p>
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 text-center">
           <form className="card-body">
             <div className="form-control">
               <label className="label">
@@ -25,22 +25,25 @@ export default function Home() {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text">Contraseña</span>
               </label>
               <input
                 type="password"
-                placeholder="password"
+                placeholder="contraseña"
                 className="input input-bordered"
                 required
               />
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
+                  Olvidé la contraseña
                 </a>
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn btn-primary">Iniciar Sesion</button>
+              <Link href="/register">
+              <button className="btn">No tienes una cuenta?</button>
+              </Link>
             </div>
           </form>
         </div>
@@ -48,3 +51,4 @@ export default function Home() {
     </div>
   );
 }
+
