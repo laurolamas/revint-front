@@ -9,22 +9,25 @@ export default function ProfilePage() {
   const [showModal, setShowModal] = useState(false);
   const [currentProduct, setCurrentProduct] = useState({});
   const [profileData, setProfileData] = useState({});
-  const testUserId = "652491720504dbe29f7cba54";
+  const testUserId = "653ad2e2208bd991737b9983"; // Usuario de prueba
 
   const fetchInfo = async () => {
     // Fetch data from external API
     const profileData = await fetch(
       `http://localhost:5000/users/${testUserId}`
-    ).then((res) => res.json());
+    ).then((res) => res.json())
+      .catch((err) => console.log(err));
 
     const userProducts = await fetch(
-      `http://localhost:5000/products/user/${testUserId}`
-    ).then((res) => res.json());
+      `http://localhost:5000/products/users/${testUserId}`
+    ).then((res) => res.json())
+      .catch((err) => [])
 
-    console.log(profileData, userProducts);
+    console.log("fetch", profileData, userProducts);
     setProfileData(profileData);
     setUserProducts(userProducts);
   };
+  console.log(profileData);
 
   useEffect(() => {
     fetchInfo();
