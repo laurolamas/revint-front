@@ -12,6 +12,11 @@ export default function UploadProductForm({ mode, product }) {
       images: [],
     };
   }
+
+  if (mode == undefined) {
+    mode = "create";
+  }
+
   const [name, setName] = useState(product.name);
   const [description, setDescription] = useState(product.description);
   const [price, setPrice] = useState(product.price);
@@ -37,8 +42,10 @@ export default function UploadProductForm({ mode, product }) {
     formData.append("user_id", "652491720504dbe29f7cba54");
     console.log(formData);
     if (mode == "edit") {
+      console.log("Edit mode submit");
       editProduct(formData);
     } else if (mode == "create") {
+      console.log("Create mode submit");
       createProduct(formData);
     }
   };
