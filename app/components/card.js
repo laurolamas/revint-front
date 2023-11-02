@@ -39,7 +39,7 @@ export default function Card({ product, mode, handleEdit }) {
               "
             height={10000}
             width={10000}
-            className="h-full w-full"
+            className="h-96 w-96"
           />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <button className="btn btn-circle" onClick={handlePrevSlide}>
