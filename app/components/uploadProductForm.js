@@ -25,8 +25,6 @@ export default function UploadProductForm({ mode, product }) {
   const [userId, setUserId] = useState(product.user_id);
   const [images, setImages] = useState(product.images);
 
-  console.log(product);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();

@@ -1,7 +1,23 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "public/logo-ReVint.png";
+
 export default function Header() {
+  const logout = async () => {
+    const res = await fetch("http://localhost:5000/auth/logout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    });
+    const responseData = await res.json();
+    console.log(responseData);
+    // if the response is successful, redirect to the login page
+    if (await res.ok) {
+      window.location.href = "/login";
+    }
+  };
+
   return (
     // sticky top-0 z-50 to make sitck at the top of the page
     <div className="navbar bg-neutral">
@@ -34,35 +50,10 @@ export default function Header() {
             <li>
               <a>Portfolio</a>
             </li>
-            <li>
-              <Link href="/components/about">about</Link>
+            <li onClick={logout}>
+              <a>LOG OUT</a>
             </li>
           </ul>
-        </div>
-        <div className="form-control">
-          <div className="input-group">
-            <input
-              type="text"
-              placeholder="Search…"
-              className="input input-bordered"
-            />
-            <button className="btn btn-square">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
       <div className="navbar-center">
@@ -73,7 +64,7 @@ export default function Header() {
         </button>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-ghost btn-circle">
+        {/* <button className="btn btn-ghost btn-circle">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -107,7 +98,7 @@ export default function Header() {
             </svg>
             <span className="badge badge-xs badge-primary indicator-item"></span>
           </div>
-        </button>
+        </button> */}
         <Link href="/profile">
           <button className="btn btn-ghost btn-circle">
             <div className="indicator">
@@ -137,7 +128,7 @@ export default function Header() {
         </Link>
         <Link href="/favourites">
           <button
-            className="btn btn-outline btn-secondary"
+            className="btn btn-ghost btn-circle"
             style={{ marginRight: "4px" }}
           >
             <svg
@@ -155,9 +146,6 @@ export default function Header() {
               />
             </svg>
           </button>
-        </Link>
-        <Link href="/login">
-          <button className="btn btn-outline btn-primary">Login</button>
         </Link>
       </div>
     </div>

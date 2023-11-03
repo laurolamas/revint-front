@@ -8,12 +8,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // check if page is login page to see wether or not to render the header
+  const isLogin = children.props.childProp.segment === "login";
+
   return (
     <html lang="en" data-theme="dark">
       <body>
-        <Header />
+        {!isLogin && <Header />}
         {children}
-        <Footer />
+        {!isLogin && <Footer />}
       </body>
     </html>
   );

@@ -1,35 +1,39 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { parse } from 'cookie';
+import { NextRequest, NextResponse } from "next/server";
+import { parse } from "cookie";
+import { cookies } from "next/headers";
 
 function isAuthenticated(req) {
-    const cookies = parse(req.headers.cookie || '');
-    return Boolean(cookies.token); // Change 'token' to the name of your cookie
+  const cookieStore = cookies();
+  return cookieStore.has("token");
 }
 
 export async function middleware(request) {
-    const path = request.nextUrl.pathname;
+  const path = request.nextUrl.pathname;
 
-    if (path === '/login') {
-        return NextResponse.next();
+  if (path === "/login" || path === "/register") {
+    if (isAuthenticated(request)) {
+      return NextResponse.redirect(new URL("/", request.url));
     }
-
-    if (!isAuthenticated(request)) {
-        // Redirect to the login page
-        return NextResponse.redirect(new URL('/login', request.url))
-    }
-
     return NextResponse.next();
+  }
+
+  if (!isAuthenticated(request)) {
+    // Redirect to the login page
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+
+  return NextResponse.next();
 }
 
 export const config = {
-    matcher: [
-        /*
-         * Match all request paths except for the ones starting with:
-         * - api (API routes)
-         * - _next/static (static files)
-         * - _next/image (image optimization files)
-         * - favicon.ico (favicon file)
-         */
-        '/((?!api|_next/static|_next/image|favicon.ico).*)',
-    ],
-}
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
+  ],
+};

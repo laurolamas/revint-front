@@ -1,9 +1,8 @@
-"use client"
+"use client";
 import Link from "next/link";
+import { parse } from "cookie";
 
 export default function Home() {
-
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const username = event.target[0].value;
@@ -14,8 +13,12 @@ export default function Home() {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
     });
-    console.log(res);
+
+    if (res.ok) {
+      window.location.href = "/";
+    }
   };
 
   return (
@@ -23,9 +26,7 @@ export default function Home() {
       <div className="hero-content flex-wrap lg:flex-row">
         <div>
           <h1 className="text-5xl font-bold">ReVint</h1>
-          <p className="py-6">
-            Inicio de sesión
-          </p>
+          <p className="py-6">Inicio de sesión</p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 text-center">
           <form className="card-body" onSubmit={handleSubmit}>
@@ -57,7 +58,9 @@ export default function Home() {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary" type="submit">Iniciar Sesion</button>
+              <button className="btn btn-primary" type="submit">
+                Iniciar Sesion
+              </button>
               <Link href="/register">
                 <button className="btn">No tienes una cuenta?</button>
               </Link>
@@ -68,4 +71,3 @@ export default function Home() {
     </div>
   );
 }
-

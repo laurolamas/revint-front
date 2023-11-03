@@ -13,15 +13,17 @@ export default function ProfilePage() {
 
   const fetchInfo = async () => {
     // Fetch data from external API
-    const profileData = await fetch(
-      `http://localhost:5000/users/${testUserId}`
-    ).then((res) => res.json())
+    const profileData = await fetch(`http://localhost:5000/users/profile`)
+      .then((res) => res.json())
       .catch((err) => console.log(err));
 
+    /// el user_id deberia estar en el profileData
+    // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     const userProducts = await fetch(
       `http://localhost:5000/products/user/${testUserId}`
-    ).then((res) => res.json())
-      .catch((err) => [])
+    )
+      .then((res) => res.json())
+      .catch((err) => []);
 
     console.log("fetch", profileData, userProducts);
     setProfileData(profileData);
@@ -31,6 +33,12 @@ export default function ProfilePage() {
 
   useEffect(() => {
     fetchInfo();
+    const token = getCookie("token");
+    if (token) {
+      console.log("Value of token:", token);
+    } else {
+      console.log("Cookie not found");
+    }
   }, []);
 
   const handleEdit = (product) => {
