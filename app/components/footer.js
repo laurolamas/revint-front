@@ -40,9 +40,8 @@ export default function Footer() {
       <aside className="items-center grid-flow-col">
         <Image src={logo} alt="logo" width={50} height={50} />
         <p>
-          Puedes contactarnos en cualquier momento a través del correo
-          electrónico:
-          <a href="mailto:info@tudominio.com" className="text-primary">
+          You can contact us at any time through the email:
+          <a href="mailto:info@revint.com" className="text-primary">
             {" "}
             info@revint.com
           </a>
