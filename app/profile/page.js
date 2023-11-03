@@ -9,7 +9,7 @@ export default function ProfilePage() {
   const [showModal, setShowModal] = useState(false);
   const [currentProduct, setCurrentProduct] = useState({});
   const [profileData, setProfileData] = useState({});
-  const testUserId = "653ad2e2208bd991737b9983"; // Usuario de prueba
+  const testUserId = "65444da79ceb9ae7819fa17b"; // Usuario de prueba
 
   const fetchInfo = async () => {
     // Fetch data from external API
@@ -19,7 +19,7 @@ export default function ProfilePage() {
       .catch((err) => console.log(err));
 
     const userProducts = await fetch(
-      `http://localhost:5000/products/users/${testUserId}`
+      `http://localhost:5000/products/user/${testUserId}`
     ).then((res) => res.json())
       .catch((err) => [])
 

@@ -1,6 +1,23 @@
+"use client"
 import Link from "next/link";
 
 export default function Home() {
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const username = event.target[0].value;
+    const password = event.target[1].value;
+    const res = await fetch("http://localhost:5000/auth/login", {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(res);
+  };
+
   return (
     <div className="hero max-h-screen bg-base-200">
       <div className="hero-content flex-wrap lg:flex-row">
@@ -11,14 +28,14 @@ export default function Home() {
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 text-center">
-          <form className="card-body">
+          <form className="card-body" onSubmit={handleSubmit}>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text">Username</span>
               </label>
               <input
-                type="email"
-                placeholder="email"
+                type="text"
+                placeholder="username"
                 className="input input-bordered"
                 required
               />
@@ -40,9 +57,9 @@ export default function Home() {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Iniciar Sesion</button>
+              <button className="btn btn-primary" type="submit">Iniciar Sesion</button>
               <Link href="/register">
-              <button className="btn">No tienes una cuenta?</button>
+                <button className="btn">No tienes una cuenta?</button>
               </Link>
             </div>
           </form>
