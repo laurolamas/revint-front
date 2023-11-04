@@ -25,24 +25,24 @@ export default function Home() {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Contraseña</span>
+                <span className="label-text">Password</span>
               </label>
               <input
                 type="password"
-                placeholder="contraseña"
+                placeholder="password"
                 className="input input-bordered"
                 required
               />
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
-                  Olvidé la contraseña
+                  Forgot password?
                 </a>
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Iniciar Sesion</button>
+              <button className="btn btn-primary">Login</button>
               <Link href="/register">
-              <button className="btn">No tienes una cuenta?</button>
+              <button className="btn btn-accent btn-outline mt-3">Doesn't have an account</button>
               </Link>
             </div>
           </form>

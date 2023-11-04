@@ -1,73 +1,91 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
+import { Typography, Button } from "@material-tailwind/react";
+
 
 export default function Home() {
     return (
-        <div className='bg-orange-100'>
-            <div className="bg-blend-multiply" style={{ backgroundImage: 'url(https://i.pinimg.com/564x/37/fb/46/37fb46ead81514fce1a77e7271a97491.jpg)', width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <div className="bg-blend-multiply" style={{ backgroundImage: 'url(https://i.pinimg.com/564x/7d/69/bf/7d69bf77ce46d5fa38a08f5ff1b3e0bd.jpg)', width: '50%', height: '100%' }}>
+        <div className='h-screen v-screen items-auto'>
+            <div className="bg-cover bg-full h-full flex items-center" style={{ backgroundImage: 'url(/miera_5-4-2.jpg)' }}>
+                <div className="bg-cover bg-left w-1/4 h-full">
                     <div className="bg-vintage-pattern text-white p-8">
-                        <div className="btn-group btn-group-vertical lg:btn-group-horizontal">
-                            <ul className="flex font-sans">
-                                <li>
-                                    <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">Store</button>
-                                </li>
-                                <li>
-                                    <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">About us</button>
-                                </li>
-                                <li>
-                                    <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">Contact</button>
-                                </li>
-                            </ul>
+                        <div className="flex font-sans space-x-4">
+                            <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">Store</button>
+                            <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">About us</button>
+                            <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">Contact</button>
                         </div>
-                        <section className='container mx-auto mt-9 rounded-lg shadow-md p-6 w-2/4 text-center bg-sky-950 bg-gray-400'>
-                            <h1 className="text-4xl font-extrabold font-serif">ReVint Vintage Store</h1>
-                            <p className="text-2xl mt-4 font-serif">
-                                Discover the best vintage clothing from the 70s, 80s, and 90s. ​ReVint is the best place to recirculate vintage fashion. We want our users to buy and re-sell their quality clothes while contributing to the environment.
-                            </p>
-                        </section>
-                        <div className="container mx-auto ">
-                            <div className="flex flex-col md:flex-row justify-between items-center">
-                                <div className="mb-4 md:mb-0">
-                                </div>
-                            </div>
-                        </div>
-                        <div className="bg-cover bg-center h-80 md:h-96" style={{ backgroundImage: "url('/vintage-banner.jpg')" }}>
-                            <div className="container mx-auto flex items-center justify-center h-full">
-                                <div className="text-center">
-                                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-                                        ¡Big Sale!
-                                    </h2>
-                                    <p className="text-lg md:text-xl text-white">
-                                        Discount up to 50% on all products
-                                    </p>
-                                    <Link href="/products">
-                                        <button className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full mt-4 inline-block text-lg md:text-xl font-semibold">
-                                            Buy Now!
-                                        </button>
-                                    </Link>
+                        <div className="relative h-full w-full">
+                            <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+                                <div className="w-3/4 text-left md:w-/4">
+                                    <Typography variant="h1" color="white" className="mb-4 text-3xl md:text-4xl lg:text-5xl mt-16" >
+                                        ReVint Vintage Clothing
+                                    </Typography>
+                                    <Typography variant="lead" color="white" className="mb-12 opacity-80" >
+                                        ReVint Vintage is the best place to recirculate vintage fashion. We want our users to buy and re-sell their quality clothes while contributing to the environment.                                        </Typography>
+                                    <div className="flex justify-left gap-2">
+                                        <Button size="lg" color="white"> Explore </Button>
+                                        <Button size="lg" color="white" variant="text"> Gallery </Button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <section>
-                <div className="text-black container mx-auto mt-9 bg-white rounded-lg shadow-md p-6 ">
-                    <h2 className="text-3xl font-extrabold mb-4">
-                        Who are we?
-                    </h2>
+            <div className="bg-cover bg-full h-full flex items-right" style={{ backgroundImage: 'url(/ppl.jpg)' }}>
+                <div className="bg-cover bg-center w-1/2 h-full">
+                    <div className="bg-vintage-pattern text-white p-8">
+                        <div className="rounded-xl">
+                            <div className="relative h-full w-full">
+                                <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+                                    <div className="w-3/4 text-right md:w-/4 justify-right" style={{ textAlign: 'right' }}>
+                                        <Typography variant="h1" color="white" className="mb-4 text-3xl md:text-4xl lg:text-5xl mt-16" >
+                                            Where Vintage Meets Modern
+                                        </Typography>
+                                        <Typography variant="lead" color="white" className="mb-12 opacity-80" >
+                                            The best of both worlds, plus a sustainable approach. Try our customer's collection of vintage clothes with a modern twist.
+                                        </Typography>
+
+                                        <div className="flex justify-center gap-2">
+                                            <Button size="lg" color="white"> Explore </Button>
+                                            <Button size="lg" color="white" variant="text"> Gallery </Button>
+                                        </div>
+                                        <div>Press <kbd className="kbd kbd-sm">F</kbd> to pay respects.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-            <section>
-                <div className="text-black container mx-auto mt-9 bg-white rounded-lg shadow-md p-6 ">
-                    <h2 className="text-3xl font-extrabold mb-4">
-                        About us
-                    </h2>
-                    <p>
-                        We are software development students who been motivated by the non-existent or non-functional online vintage stores in Uruguay. Our mindset is letting users to feel free by selling their products, the goal is connect those users with people who would want to buy them.
-                    </p>
+            </div>
+            <div className="bg-cover bg-full h-full w-full items-right" style={{ backgroundImage: 'url(/recycle.jpg)' }}>
+                <div className="bg-cover bg-center w-1/2 h-full h-1/2 w-full">
+                    <div className="bg-vintage-pattern text-white p-8">
+                        <div className="rounded-xl">
+                            <div className="relative h-full w-full">
+                                <div className="absolute inset-0 grid h-full w-full place-items-right bg-black/75">
+                                    <div className="w-3/4 text-right md:w-/4 justify-right" style={{ textAlign: 'right' }}>
+                                        <Typography variant="h1" color="white" className="mb-4 text-3xl md:text-4xl lg:text-5xl mt-16" >
+                                            Recycle Your Clothes
+                                        </Typography>
+                                        <Typography variant="lead" color="white" className="mb-12 opacity-80" >
+                                            We have to start thinking about the future of our planet. The fashion industry is one of the most polluting industries in the world. We want to help you recycle your clothes and give them a second life.
+                                        </Typography>
+                                        <div className="flex justify-center gap-2">
+                                            <Button size="lg" color="white"> Explore </Button>
+                                            <Button size="lg" color="white" variant="text"> Gallery </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+            </div>
+            <section>
             </section>
         </div>
     );
