@@ -7,7 +7,7 @@ export default function Home() {
     event.preventDefault();
     const username = event.target[0].value;
     const password = event.target[1].value;
-    const res = await fetch("http://localhost:5000/auth/login", {
+    const res = await fetch("http://localhost:8080/auth/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {
@@ -22,7 +22,7 @@ export default function Home() {
   };
 
   return (
-    <div className="hero max-h-screen bg-base-200">
+    <div className="hero h-full bg-base-200">
       <div className="hero-content flex-wrap lg:flex-row">
         <div>
           <h1 className="text-5xl font-bold">ReVint</h1>

@@ -49,7 +49,7 @@ export default function UploadProductForm({ mode, product }) {
   };
 
   const createProduct = async (formData) => {
-    const res = await fetch("http://localhost:5000/products", {
+    const res = await fetch("http://localhost:8080/products", {
       method: "POST",
       body: formData,
     });
@@ -57,7 +57,7 @@ export default function UploadProductForm({ mode, product }) {
   };
 
   const editProduct = async (formData) => {
-    const res = await fetch(`http://localhost:5000/products/${product._id}`, {
+    const res = await fetch(`http://localhost:8080/products/${product._id}`, {
       method: "PUT",
       body: formData,
     });

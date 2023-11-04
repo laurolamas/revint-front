@@ -7,7 +7,7 @@ export default function Home() {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:5000/products");
+    const res = await fetch("http://localhost:8080/products");
     const data = await res.json();
     setProducts(data);
   };

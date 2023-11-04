@@ -8,37 +8,30 @@ export default function ProfilePage() {
   const [userProducts, setUserProducts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [currentProduct, setCurrentProduct] = useState({});
-  const [profileData, setProfileData] = useState({});
-  const testUserId = "65444da79ceb9ae7819fa17b"; // Usuario de prueba
+  const [profileData, setProfileData] = useState(undefined);
 
   const fetchInfo = async () => {
     // Fetch data from external API
-    const profileData = await fetch(`http://localhost:5000/users/profile`)
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
+    const res = await fetch(`http://localhost:8080/users/profile`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    });
 
-    /// el user_id deberia estar en el profileData
-    // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    const profileData = await res.json();
+
     const userProducts = await fetch(
-      `http://localhost:5000/products/user/${testUserId}`
+      `http://localhost:8080/products/user/${profileData._id}`
     )
       .then((res) => res.json())
       .catch((err) => []);
 
-    console.log("fetch", profileData, userProducts);
     setProfileData(profileData);
     setUserProducts(userProducts);
   };
-  console.log(profileData);
 
   useEffect(() => {
     fetchInfo();
-    const token = getCookie("token");
-    if (token) {
-      console.log("Value of token:", token);
-    } else {
-      console.log("Cookie not found");
-    }
   }, []);
 
   const handleEdit = (product) => {
@@ -47,37 +40,39 @@ export default function ProfilePage() {
   };
 
   return (
-    <div>
-      <h1>Profile Page</h1>
-      <h2>User Info</h2>
-      <p>{profileData.name}</p>
-      <p>{profileData.email}</p>
-      <Image
-        src={profileData.imageUrl || "/user.png"}
-        className="w-40 h-40"
-        width={100}
-        height={100}
-        alt="profile picture"
-      />
+    profileData && (<div className="flex flex-col items-center">
+      <h1 className="text-5xl font-bold">Profile Page</h1>
+      <div className="gap-5">
+        <h2>User Info</h2>
+        <div className="avatar">
+          <div className="w-24 rounded-full">
+            <img src={profileData.imageUrl || "/user.png"} />
+          </div>
+        </div>
+        <p>{profileData.name}</p>
+        <p>{profileData.email}</p>
 
-      <h2>Products</h2>
-      <div className="flex flex-row flex-wrap justify-center">
-        {showModal && (
-          <UploadProductForm
-            mode={"edit"}
-            handleEdit={handleEdit}
-            product={currentProduct}
-          />
-        )}
-        {userProducts.map((product) => (
-          <Card
-            product={product}
-            key={product._id}
-            mode={"profile"}
-            handleEdit={handleEdit}
-          />
-        ))}
       </div>
-    </div>
+      <div>
+        <h2>Products</h2>
+        <div className="flex flex-row flex-wrap justify-center">
+          {showModal && (
+            <UploadProductForm
+              mode={"edit"}
+              handleEdit={handleEdit}
+              product={currentProduct}
+            />
+          )}
+          {userProducts.map((product) => (
+            <Card
+              product={product}
+              key={product._id}
+              mode={"profile"}
+              handleEdit={handleEdit}
+            />
+          ))}
+        </div>
+      </div>
+    </div>)
   );
 }

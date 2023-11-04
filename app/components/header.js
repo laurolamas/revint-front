@@ -5,7 +5,7 @@ import logo from "public/logo-ReVint.png";
 
 export default function Header() {
   const logout = async () => {
-    const res = await fetch("http://localhost:5000/auth/logout", {
+    const res = await fetch("http://localhost:8080/auth/logout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
