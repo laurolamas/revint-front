@@ -1,13 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import Card from "../components/card";
-import Image from "next/image";
-import UploadProductForm from "../components/uploadProductForm";
+import UserProducts from "../components/userProducts";
 
 export default function ProfilePage() {
   const [userProducts, setUserProducts] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-  const [currentProduct, setCurrentProduct] = useState({});
   const [profileData, setProfileData] = useState(undefined);
 
   const fetchInfo = async () => {
@@ -34,43 +30,23 @@ export default function ProfilePage() {
     fetchInfo();
   }, []);
 
-  const handleEdit = (product) => {
-    setCurrentProduct(product);
-    setShowModal(true);
-  };
-
   return (
     profileData && (<div className="flex flex-col items-center">
-      <h1 className="text-5xl font-bold">Profile Page</h1>
-      <div className="gap-5">
-        <h2>User Info</h2>
-        <div className="avatar">
+      <div className="flex flex-row">
+        <div className="avatar m-5 flex flex-col">
           <div className="w-24 rounded-full">
             <img src={profileData.imageUrl || "/user.png"} />
           </div>
+          <p className="text-slate-400 text-center">@{profileData.username}</p>
         </div>
-        <p>{profileData.name}</p>
-        <p>{profileData.email}</p>
-
+        <div className="flex flex-col justify-center">
+          <p className="text-xl">👤{profileData.name}</p>
+          <p className="text-xl">📍{profileData.city}</p>
+        </div>
       </div>
       <div>
-        <h2>Products</h2>
         <div className="flex flex-row flex-wrap justify-center">
-          {showModal && (
-            <UploadProductForm
-              mode={"edit"}
-              handleEdit={handleEdit}
-              product={currentProduct}
-            />
-          )}
-          {userProducts.map((product) => (
-            <Card
-              product={product}
-              key={product._id}
-              mode={"profile"}
-              handleEdit={handleEdit}
-            />
-          ))}
+          <UserProducts userProducts={userProducts} />
         </div>
       </div>
     </div>)

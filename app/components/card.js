@@ -1,9 +1,12 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import UploadProductForm from "./uploadProductForm";
+import Modal from "./modal";
 
-export default function Card({ product, mode, handleEdit }) {
+export default function Card({ product, mode }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showModal, setShowModal] = useState(false);
 
   const handleNextSlide = () => {
     if (currentSlide == product.images.length - 1) {
@@ -22,7 +25,7 @@ export default function Card({ product, mode, handleEdit }) {
   };
 
   const handleEditProduct = () => {
-    handleEdit(product);
+
   };
 
   return (
@@ -60,7 +63,7 @@ export default function Card({ product, mode, handleEdit }) {
         <div className="card-actions justify-end">
           <div className="badge badge-outline">{product.category}</div>
           {mode == "profile" && (
-            <button className="btn btn-circle" onClick={handleEditProduct}>
+            <button className="btn btn-circle" onClick={() => { document.getElementById(product._id).showModal() }}>
               <svg
                 className="w-6 h-6 stroke-current"
                 viewBox="0 0 24 24"
@@ -78,6 +81,12 @@ export default function Card({ product, mode, handleEdit }) {
           )}
         </div>
       </div>
+      <Modal id={product._id}>
+        <UploadProductForm
+          mode={"edit"}
+          product={product}
+        />
+      </Modal>
     </div>
   );
 }

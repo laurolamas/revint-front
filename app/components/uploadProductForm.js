@@ -22,7 +22,6 @@ export default function UploadProductForm({ mode, product }) {
   const [price, setPrice] = useState(product.price);
   const [condition, setCondition] = useState(product.condition);
   const [category, setCategory] = useState(product.category);
-  const [userId, setUserId] = useState(product.user_id);
   const [images, setImages] = useState(product.images);
 
   const handleSubmit = async (event) => {
@@ -36,8 +35,6 @@ export default function UploadProductForm({ mode, product }) {
     formData.append("price", price);
     formData.append("condition", condition);
     formData.append("category", category);
-    // el user_id deberia sacarlo de la cookie por ahora van todos pal pipi
-    formData.append("user_id", "652491720504dbe29f7cba54");
     console.log(formData);
     if (mode == "edit") {
       console.log("Edit mode submit");
