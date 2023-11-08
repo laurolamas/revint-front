@@ -15,7 +15,7 @@ export default function Home() {
                     <div className="bg-vintage-pattern text-white p-8">
                         <div className="flex font-sans space-x-4">
                             <Link href="/products">
-                            <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">Store</button>
+                                <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">Store</button>
                             </Link>
                             <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">About us</button>
                             <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">Contact</button>
@@ -82,33 +82,65 @@ export default function Home() {
                 </div>
             </div>
             <div className="bg-full h-full w-full flex flex-col items-center justify-center bg-white">
-                <Typography variant="h1" color="black" className="text-black mb-4 text-3xl md:text-4xl lg:text-5xl mt-5">
-                    Main features
-                </Typography>
+                    <div className='relative overflow-hidden w-full h-10 bg-red-950 flex py-1 pr-4 text-sm font-light uppercase mt-20'>
+                    <Typography variant="" color="black" className="text-black mb-4 md:text-4xl lg:text-5xl mt-12">
+                        Main features
+                    </Typography>
+                </div>
                 <div className="bg-full h-full w-full flex flex-items-center p-8 justify-center">
                     <div className="bg-black p-8 text-white rounded-3xl m-4 w-1/2">
                         <Typography variant="h1" className="text-white flex justify-center">
                             Create your own products
                         </Typography>
-                        <Typography variant="lead" color="white" className="text-2xl mt-16 opacity-80">
-                            In ReVint, we believe that even your oldest cloth can have a second life. Our main feature let users to create their own products by following certain parameters, making everything easier to connect with other users that might want them.
-                        </Typography>
+                        <Typography variant="lead" color="white" className="text-2xl mt-8 opacity-80">
+                            ReVint main feature let users to create their own products by following certain parameters, making everything easier to connect with other users that might want them.                        </Typography>
+                        <img src="/produt.png" alt="product" className="w-full mt-10" />
                     </div>
                     <div className="bg-black p-8 text-white rounded-3xl m-4 w-1/2">
-                        <Typography variant="h1" className="text-white flex justify-center">
-                            Publish and sell
-                        </Typography>
+                        <div className='h-1/2 bg-white rounded-3xl'>
+                            <Typography variant="h1" className="text-3xl text-black flex justify-center">
+                                Add to favorites products that you like
+                            </Typography>
+                        </div>
+                        <div className='h-1/2 bg-white rounded-3xl mt-2'>
+                            <Typography variant="h1" className="text-3xl text-black flex justify-center">
+                                Then visit your list whenever you want!
+                            </Typography>
+                        </div>
                     </div>
                 </div>
             </div>
             <div className='bg-full h-full w-full flex flex-col items-center justify-center bg-black'>
-                <Typography variant="h1" color="white" className="text-white mb-4 text-3xl md:text-4xl lg:text-5xl mt-5">
-                    Who are we ?
+                <Typography variant="h1" color="white" className="text-white mb-4 text-3xl md:text-4xl lg:text-5xl mt-36">
+                    About us
                 </Typography>
-                <div className=' bg-white h-full flex p-8 text-white rounded-3xl m-4 w-3/4'>
-                    <Typography variant="lead" color="black" className="text-2xl mt-16 opacity-80">
-                        We are software development students of Holberton School, who were motivated by the non-existent or non-functional vintage stores in Uruguay. Our vision is to connect users who wants to sell their old fashioned clothes to users looking for that kind of style. Team roles were assigned based on the strengths of each one of us, we have two Front-End developers, a Back-end developer and Project manager, and a Full-Stack Developer.
+                <div className='bg-white h-full flex flex-col p-8 text-white rounded-3xl m-4 w-full'>
+                    <Typography variant="lead" color="black" className="text-2xl mt-2 mb-4 opacity-80">
+                        We are software development students of Holberton School, who were motivated by the non-existent or non-functional vintage stores in Uruguay. Our vision is to connect users who want to sell their old-fashioned clothes to users looking for that kind of style. Team roles were assigned based on the strengths of each one of us; we have two Front-End developers, a Back-end developer, a Project manager, and a Full-Stack Developer.
                     </Typography>
+                    <div className='flex flex-row '>
+                        <div className='bg-gray-500 w-1/4'>
+                            <Typography variant="lead" color="white" className="text-2xl mt-2 mb-4 opacity-80 flex justify-center items-center">
+                                Back-end Developer / Project manager
+                            </Typography>
+                        </div>
+                        <div className='bg-gray-700 w-1/4'>
+                            <Typography variant="lead" color="white" className="text-2xl mt-2 mb-4 opacity-80 flex justify-center items-center">
+                                Full-Stack Developer
+                            </Typography>
+                        </div>
+                        <div className='bg-black w-1/2'>
+                            <Typography variant="lead" color="white" className="text-2xl mt-2 mb-4 opacity-80 flex justify-center items-center">
+                                Front-end Developer
+                            </Typography>
+                        </div>
+                    </div>
+                    <div className='flex justify-between '>
+                        <img src="/a.jpeg" className=' w-1/4 h-100  '></img>
+                        <img src="/c.jpeg" className=' w-1/4 h-100'></img>
+                        <img src="/b.jpeg" className=' w-1/4 h-100'></img>
+                        <img src="/d.jpg" className='" w-1/4 h-100'></img>
+                    </div>
                 </div>
             </div>
         </div>
