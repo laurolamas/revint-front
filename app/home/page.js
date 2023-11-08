@@ -52,7 +52,6 @@ export default function Home() {
                                 <Button size="lg" color="white" variant="text">Explore</Button>
                                 <Button size="lg" color="white" variant="text">Gallery</Button>
                             </div>
-                            <div className="text-center mt-2">Press <kbd className="kbd kbd-sm">F</kbd> to pay respects.</div>
                         </div>
                     </div>
                 </div>
