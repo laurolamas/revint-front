@@ -54,7 +54,6 @@ export default function Card({ product, mode }) {
           width="20"
         />
       </button>
-
       <div className="carousel w-full">
         <div className="carousel-item relative w-full">
           <Image

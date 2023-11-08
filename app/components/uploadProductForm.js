@@ -49,6 +49,7 @@ export default function UploadProductForm({ mode, product }) {
     const res = await fetch("http://localhost:8080/products", {
       method: "POST",
       body: formData,
+      credentials: "include",
     });
     console.log(await res.json());
   };
@@ -64,10 +65,10 @@ export default function UploadProductForm({ mode, product }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="md:w-full h-full w-full p-10 m-10 border border-gray-300 rounded-md max-w-sm md:max-w-3xl"
+      className="p-4 md:"
     >
       <div className="md:flex md:justify-around">
-        <div className="flex-col">
+        <div className="flex flex-col p-2">
           <label>Name:</label>
           <div>
             <input
@@ -97,7 +98,7 @@ export default function UploadProductForm({ mode, product }) {
             />
           </div>
         </div>
-        <div className="flex-col">
+        <div className="flex-col p-2">
           <label>Condition:</label>
           <div>
             <input
