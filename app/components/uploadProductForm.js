@@ -96,23 +96,34 @@ export default function UploadProductForm({ mode, product }) {
           </div>
         </div>
         <div className="flex-col">
-          <label>Condition:</label>
+        <label>Condition:</label>
           <div>
-            <input
-              className="input mb-3 input-bordered w-full max-w-xs"
-              type="text"
+            <select
+              className="select mb-3 select-bordered w-full max-w-xs"
               value={condition}
               onChange={(e) => setCondition(e.target.value)}
-            />
+            >
+              <option value="used">Used - Some details</option>
+              <option value="used-details">Used - Like New </option>
+              <option value="new">New</option>
+            </select>
           </div>
           <label>Category:</label>
           <div>
-            <input
-              className="input mb-3 input-bordered w-full max-w-xs"
-              type="text"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            />
+            <select
+              className="select mb-3 select-bordered w-full max-w-xs"
+              value={condition}
+              onChange={(e) => setCondition(e.target.value)}
+            >
+              <option value="Jacket">Jacket</option>
+              <option value="Coat">Coat</option>
+              <option value="Sweater">Sweater</option>
+              <option value="Short Sleeve">Short Sleeve</option>
+              <option value="Long Sleeve">Long Sleeve</option>
+              <option value="Skirt">Skirt</option>
+              <option value="Pants">Pants</option>
+              <option value="Shorts">Shorts</option>
+            </select>
           </div>
           <label>Images:</label>
           <div>
