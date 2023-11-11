@@ -31,24 +31,28 @@ export default function ProfilePage() {
   }, []);
 
   return (
-    profileData && (<div className="flex flex-col items-center">
-      <div className="flex flex-row">
-        <div className="avatar m-5 flex flex-col">
-          <div className="w-24 rounded-full">
-            <img src={profileData.imageUrl || "/user.png"} />
+    profileData && (
+      <div className="flex flex-col items-center">
+        <div className="flex flex-row">
+          <div className="avatar m-5 flex flex-col">
+            <div className="w-24 rounded-full">
+              <img src={profileData.imageUrl || "/user.png"} />
+            </div>
+            <p className="text-slate-400 text-center">
+              @{profileData.username}
+            </p>
           </div>
-          <p className="text-slate-400 text-center">@{profileData.username}</p>
+          <div className="flex flex-col justify-center">
+            <p className="text-xl">👤{profileData.name}</p>
+            <p className="text-xl">📍{profileData.city}</p>
+          </div>
         </div>
-        <div className="flex flex-col justify-center">
-          <p className="text-xl">👤{profileData.name}</p>
-          <p className="text-xl">📍{profileData.city}</p>
+        <div>
+          <div className="flex flex-row flex-wrap justify-center">
+            <UserProducts userProducts={userProducts} />
+          </div>
         </div>
       </div>
-      <div>
-        <div className="flex flex-row flex-wrap justify-center">
-          <UserProducts userProducts={userProducts} />
-        </div>
-      </div>
-    </div>)
+    )
   );
 }
