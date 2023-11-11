@@ -29,7 +29,7 @@ export default function Header() {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link href="/home">Homepage</Link>
+              <Link href="/">Homepage</Link>
             </li>
             <li>
               <a>Portfolio</a>
@@ -137,7 +137,7 @@ export default function Header() {
           </button>
         </Link>
         <Link href="/login">
-          <button className="btn btn-outline btn-primary">Login</button>
+          <button className="btn btn-outline btn-primary animate-pulse">Login</button>
         </Link>
       </div>
     </div>

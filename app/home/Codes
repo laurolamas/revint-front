@@ -17,3 +17,5 @@
                             </div>
                             <img src="/ppl.jpg" alt="image 1" className="h-full w-full object-cover" />
                         </Carousel>
+
+                        <div className="flex flex-col justify-center items-center">
