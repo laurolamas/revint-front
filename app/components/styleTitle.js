@@ -26,7 +26,7 @@ const WordTransition = () => {
     <div className="text-8xl font-bold transition-opacity duration-500 ease-in-out">
       <span className="text-white">Re</span>
       <span className="inline-block"> {/* Contenedor para mantener las letras "Re" fijas */}
-        {suffix === 'Vint' && <span className="text-red-500">{suffix}</span>}
+        {suffix === 'Vint' && <span className="text-white">{suffix}</span>}
         {suffix === 'Cycle' && <span className="text-green-500">{suffix}</span>}
         {suffix === 'Vive' && <span className="text-yellow-500">{suffix}</span>}
       </span>
