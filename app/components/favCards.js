@@ -11,7 +11,8 @@ export default function FavCards({ product, deleteFavourite }) {
         src={product.images[0]}
         width={100}
         height={100}
-        className="h-24 aspect-auto rounded-sm"
+        alt="Favcard image"
+        className="h-auto aspect-auto rounded-sm"
       />
       <div className="flex flex-col flex-1">
         <h3 className="text-lg font-bold uppercase bg-transparent border-none text-white">
