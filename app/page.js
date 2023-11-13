@@ -7,6 +7,7 @@ import { Typography, Button } from "@material-tailwind/react";
 import WordTransition from "./components/styleTitle";
 import Image from "next/image";
 import productImage from '../public/produt.png';
+import favoriteCard from '../public/favorite-card.png'
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -132,7 +133,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <Typography variant="h1" className="flex align-bottom ">Features</Typography>
+        </div>
+        <div>
+          <Typography variant="h1" className="flex justify-center">Features</Typography>
         </div>
         <div className="bg-black flex flex-row">
           <div className="w-1/3 h-full bg-black h-2/3">
@@ -148,6 +151,8 @@ export default function Home() {
             <div className="card-body">
               <Typography variant="h3" className=" flex items-center justify-center"> Add to favorites products that you like! </Typography>
               <Typography variant="h5" className=" flex items-center justify-center"> then visit them whenever you want</Typography>
+              <Image src={favoriteCard} alt="Logo Revint" className="mt-12" />
+              <Image src={favoriteCard} alt="Logo Revint" className="mt-12" />
             </div>
             {/* <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure> */}
           </div>

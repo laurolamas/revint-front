@@ -27,6 +27,13 @@ export default function Card({ product, mode, handleEdit }) {
     handleEdit(product);
   };
 
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleAddToFavorites = () => {
+    setIsFavorite(!isFavorite);
+  };
+
+
   return (
     <div className="group card w-96 bg-base-100 shadow-xl m-10 hover:cursor-pointer hover:shadow-inner transform hover:scale-110 transition ease-out relative">
       <div className="carousel w-full relative">
@@ -59,10 +66,28 @@ export default function Card({ product, mode, handleEdit }) {
         </h2>
         <p>{product.description}</p>
         <div className="card-actions justify-between items-end">
+          {mode !== "profile" && (
+            <button className="btn btn-circle" onClick={handleAddToFavorites}>
+              <svg
+                className="w-6 h-6 stroke-current text-red-500"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C15.09 3.81 16.76 3 18.5 3 21.58 3 24 5.42 24 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                />
+              </svg>
+            </button>
+          )}
+
           <div className="badge badge-outline">{product.category}</div>
           <Link href={`/product-detail/${product.id}`}>
-          <button className="btn btn-primary">Buy
-          </button>
+            <button className="btn btn-primary">Buy
+            </button>
           </Link>
           {mode === "profile" && (
             <button className="btn btn-circle" onClick={handleEditProduct}>

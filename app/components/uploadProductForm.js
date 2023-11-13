@@ -123,6 +123,7 @@ export default function UploadProductForm({ mode, product }) {
               <option value="Skirt">Skirt</option>
               <option value="Pants">Pants</option>
               <option value="Shorts">Shorts</option>
+              <option value="Shorts">Shoes</option>
             </select>
           </div>
           <label>Images:</label>

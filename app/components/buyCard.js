@@ -68,7 +68,7 @@ export default function BuyCard({ product, mode, handleEdit, seller }) {
           <p>{product.description}</p>
           <div className="card-actions justify-between items-end">
             <div className="badge badge-outline">{product.category}</div>
-            <Link href={`/product-detail/${product.id}`}>
+            <Link href={`/contact-seller/`}>
               <button className="btn btn-secondary btn-sm">Send Message to Seller</button>
             </Link>
             {mode === "profile" && (

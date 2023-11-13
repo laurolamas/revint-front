@@ -45,7 +45,7 @@ export default function Header() {
       </div>
       <div className="navbar-center">
         <button className="btn btn-circle btn-ghost hover:opacity-90">
-          <Link href="/home">
+          <Link href="/">
             <Image src={logo} alt="Logo Revint" width={400} height={400} />
           </Link>
         </button>

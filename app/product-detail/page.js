@@ -80,7 +80,7 @@ export default function ProductDetail() {
 
     return (
         <>
-            <div className="flex items-center justify-center max-h-screen">
+            <div className="flex items-center justify-center max-h-screen bg-cover bg-center" style={{ backgroundImage: "url(/miera_5-4-2.jpg)" }}>
                 <div className="flex overflow-x-auto">
                     {products.slice(startIndex, startIndex + cardsPerPage).map((product, index) => (
                         <div
