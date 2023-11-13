@@ -30,6 +30,7 @@ export default function Page({ params }) {
     );
     const product = await res.json();
     setProduct(product);
+    console.log(product);
 
     const res2 = await fetch(`http://localhost:8080/users/${product.user_id}`);
     const user = await res2.json();
@@ -45,27 +46,58 @@ export default function Page({ params }) {
   return (
     product && (
       <>
-        <div className="max-w-96">
-          <img
-            src={product.images[currentSlide]}
-            alt="image-0"
-            className="max-h-96"
-          />
-          <div className=" relative flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <button className="btn btn-circle" onClick={handlePrevSlide}>
-              ❮
-            </button>
-            <button className="btn btn-circle" onClick={handleNextSlide}>
-              ❯
-            </button>
+        <div className="flex flex-row justify-evenly m-10">
+          <div className="h-96 w-96 rounded-lg bg-gray-200 flex flex-col justify-center relative">
+            <img
+              src={product.images[currentSlide]}
+              alt={`image-${currentSlide}`}
+              className="h-full w-full object-cover object-center group-hover:opacity-75 rounded-lg"
+            />
+            <div className="absolute inset-0 flex items-center justify-between">
+              <button
+                className="btn btn-circle relative left-5"
+                onClick={handlePrevSlide}
+              >
+                ❮
+              </button>
+              <button
+                className="btn btn-circle relative right-5"
+                onClick={handleNextSlide}
+              >
+                ❯
+              </button>
+            </div>
+          </div>
+          <div className="items-center">
+            <h1 className="text-4xl">{product.name}</h1>
+            <h2 className="text-2xl">{product.price}</h2>
+            <p className="text-xl">{product.description}</p>
+            <p className="text-xl">{product.category}</p>
+            <p className="text-xl">{product.condition}</p>
+
+            {isUserDefined && (
+              <div className="flex flex-col items-center mt-5">
+                <h1>Published by: </h1>
+                <div className="flex flex-row">
+                  <Link href={`/profile/${user.username}`}>
+                    <div className="avatar m-5 flex flex-col">
+                      <div className="w-24 rounded-full">
+                        <img src={user.imageUrl || "/user.png"} />
+                      </div>
+                      <p className="text-slate-400 text-center">
+                        @{user.username}
+                      </p>
+                    </div>
+                  </Link>
+                  <div className="flex flex-col justify-center">
+                    <p className="text-xl">👤{user.name}</p>
+                    <p className="text-xl">📍{user.city}</p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
-        <h1>Created by: </h1>
-        {isUserDefined && (
-          <Link href={`/profile/${user.username}`}>
-            <p>{user.username}</p>
-          </Link>
-        )}
       </>
     )
   );
