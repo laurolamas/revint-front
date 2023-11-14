@@ -4,7 +4,7 @@ import logo from "public/logo-ReVint.png";
 export default function Header() {
   return (
     // sticky top-0 z-50 to make sitck at the top of the page
-    <div className="navbar bg-black sticky top-0 z-50 h-[80px] border-b-2">
+    <div className="navbar bg-gray-800 sticky top-0 z-50 h-[80px] border-b-2">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">

@@ -53,20 +53,32 @@ export default function Home() {
 
   return (
     <>
-      <div className='h-screen v-screen items-auto'>
-        <div className="flex font-sans space-x-4 flex justify-center">
+      <div className='h-screen v-screen items-auto relative'>
+        <div className="flex font-sans space-x-4 bg-teal-700">
           <Link href="/products">
             <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">Store</button>
           </Link>
           <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">About us</button>
           <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">Contact</button>
         </div>
-        <div className="h-full bg-black h-5/6 justify-center mt-72">
-          <Typography variant='h1' className="flex items-center justify-center text-9xl">
+        <div className="ml-96 mt-64 absolute items-center justify-center"
+          style={{ opacity: 1.0 }}>
+          <Typography variant='h1' className="flex items-center justify-center text-center text-9xl">
             <WordTransition />
           </Typography>
-          <Typography variant="h3" className="flex justify-center mt-4">Our <span className="text-yellow-500">&nbsp;style</span>, our <span className="text-green-500">&nbsp;planet</span>, our future</Typography>
+          <Typography variant="h3" className="flex justify-center mt-4 text-center">Our <span className="text-yellow-500">&nbsp;style</span>, our <span className="text-green-500">&nbsp;planet</span>, our future</Typography>
         </div>
+        <div className="relative bg-cover bg-full h-full flex items-center">
+          <video className="relative inset-0 w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            style={{ opacity: 0.6 }}
+          ><source src="/cloth.mp4" type="video/mp4" />
+            Tu navegador no soporta el elemento de video.
+          </video>
+        </div>
+
         <div className="bg-cover bg-full h-full flex items-center" style={{ backgroundImage: 'url(/miera_5-4-2.jpg)' }}>
           <div className="bg-cover bg-left w-2/4 h-full bg-black/25">
             <div className="bg-vintage-pattern text-white p-8">
@@ -78,8 +90,7 @@ export default function Home() {
                     </Typography>
                     <Typography variant="h4" color="white" className="mb-12 opacity-80 drop-shadow-2xl mt-4" >
                       ReVint Vintage is the best place to recirculate vintage fashion. We want our users to buy and re-sell their quality clothes while contributing to the environment.</Typography>
-                    {/* Carrusel */}
-                    {/* botones de carrusel */}
+                    {/* Carrusel}
                     <div className="flex items-center justify-center max-h-screen">
                       <button
                         onClick={handlePrevClick}
@@ -107,7 +118,6 @@ export default function Home() {
                         &gt;
                       </button>
                     </div>
-                    {/* fin de botones de carrusel */}
                     {/* Fin del carrusel */}
                     <div className="flex justify-left gap-2">
                       <Link href="/products">
@@ -144,15 +154,15 @@ export default function Home() {
                 <Typography variant="h3" className=" flex items-center justify-center"> Create your own products </Typography>
                 <Typography variant="h5" className=" flex items-center justify-center"> Follow certain parameters, create a product and publish it!</Typography>
               </div>
-              <Image src={productImage} alt="Create-a-product" className="mt-12" />
+              <Image src={productImage} alt="Logo Revint" className="mt-12" />
             </div>
           </div>
           <div className="card bg-gray-700 shadow-xl">
             <div className="card-body">
               <Typography variant="h3" className=" flex items-center justify-center"> Add to favorites products that you like! </Typography>
               <Typography variant="h5" className=" flex items-center justify-center"> then visit them whenever you want</Typography>
-              <Image src={favoriteCard} alt="Favs" className="mt-12 rounded-3xl"/>
-              <Image src={favoriteCard} alt="Favs" className="mt-12 rounded-3xl"/>
+              <Image src={favoriteCard} alt="Logo Revint" className="mt-12" />
+              <Image src={favoriteCard} alt="Logo Revint" className="mt-12" />
             </div>
             {/* <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure> */}
           </div>
