@@ -147,38 +147,38 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div>
+        <div className="bg-black">
           <Typography variant="h1" className="flex justify-center">Features</Typography>
-        </div>
-        <div className="bg-black flex flex-row">
-          <div className="w-1/3 h-full bg-black h-2/3">
-            <div className="card w-auto bg-gray-500 shadow-xl">
-              <div className="card-body">
-                <Typography variant="h3" className=" flex items-center justify-center"> Create your own products </Typography>
-                <Typography variant="h5" className=" flex items-center justify-center"> Follow certain parameters, create a product and publish it!</Typography>
+          <div className="bg-black flex flex-row">
+            <div className="w-1/3 h-full  h-2/3">
+              <div className="card w-auto shadow-xl">
+                <div className="card-body">
+                  <Typography variant="h3" className=" flex items-center justify-center"> Create your own products </Typography>
+                  <Typography variant="h5" className=" flex items-center justify-center"> Follow certain parameters, create a product and publish it!</Typography>
+                </div>
+                <Image src={productImage} alt="Logo Revint" className="mt-12" />
               </div>
-              <Image src={productImage} alt="Logo Revint" className="mt-12" />
             </div>
-          </div>
-          <div className="card bg-gray-700 shadow-xl">
-            <div className="card-body">
-              <Typography variant="h3" className=" flex items-center justify-center"> Add to favorites products that you like! </Typography>
-              <Typography variant="h5" className=" flex items-center justify-center"> then visit them whenever you want</Typography>
-              <Image src={favoriteCard} alt="Logo Revint" className="mt-12" />
-              <Image src={favoriteCard} alt="Logo Revint" className="mt-12" />
+            <div className="card shadow-xl">
+              <div className="card-body">
+                <Typography variant="h3" className=" flex items-center justify-center"> Add to favorites products that you like! </Typography>
+                <Typography variant="h5" className=" flex items-center justify-center"> then visit them whenever you want</Typography>
+                <Image src={favoriteCard} alt="Logo Revint" className="mt-12" />
+                <Image src={favoriteCard} alt="Logo Revint" className="mt-12" />
+              </div>
+              {/* <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure> */}
             </div>
-            {/* <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure> */}
-          </div>
-          <div className="card bg-gray-900 w-1/3 shadow-xl">
-            <div className="card-body">
-              <Typography variant="h3" className=" flex items-center justify-center"> Contact the seller! </Typography>
+            <div className="card w-1/3 shadow-xl">
+              <div className="card-body">
+                <Typography variant="h3" className=" flex items-center justify-center"> Contact the seller! </Typography>
+              </div>
+              {/* <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure> */}
             </div>
-            {/* <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure> */}
           </div>
         </div>
         {/* <div className="bg-cover bg-full h-full flex items-center justify-center" style={{ backgroundImage: 'url(/ppl.jpg)' }}>
           <div className="grid h-full w-full bg-black/25">
-            <div className="bg-cover bg-center w-3/4 md:w-1/2 lg:w-1/3 h-full mx-auto">
+          <div className="bg-cover bg-center w-3/4 md:w-1/2 lg:w-1/3 h-full mx-auto">
               <div className="bg-vintage-pattern text-white p-8 h-full flex flex-col justify-center">
                 <Typography variant="h1" color="white" className="mb-4 text-3xl md:text-4xl lg:text-5xl text-center">
                   Where Vintage Meets Modern
@@ -195,33 +195,29 @@ export default function Home() {
             </div>
           </div>
         </div> */}
-        <div className="bg-cover bg-full h-full w-full flex-items-center justify-center" style={{ backgroundImage: 'url(/recycle.jpg)' }}>
-          <div className="bg-cover bg-center w-1/2 h-full h-1/2 w-full bg-black/50">
-            <div className="bg-vintage-pattern text-white p-8">
-              <div className="rounded-xl">
-                <div className="relative h-full w-full">
-                  <div className="absolute inset-0 grid h-full w-full place-items-end bg-black/75">
-                    <div className="w-3/4 text-right md:w-1/4 pr-8">
-                      <Typography variant="h1" color="white" className="mb-4 text-3xl md:text-4xl lg:text-5xl mt-16">
-                        Recycle Your Clothes
-                      </Typography>
-                      <Typography variant="lead" color="white" className="mb-12 opacity-80 drop-shadow-2xl text-xl">
-                        We have to start thinking about the future of our planet. The fashion industry is one of the most polluting industries in the world. We want to help you recycle your clothes and give them a second life.
-                      </Typography>
-                      <div className="flex justify-center gap-2">
-                        <Button className="text-sm btn btn-ghost text-white" onClick={showEnvironmentalInfo}>
-                          Learn More
-                        </Button>
-                      </div>
-                    </div>
+        <div className="h-full bg-cover flex-items-center justify-center" style={{ backgroundImage: 'url(/recycle.jpg)' }}>
+          <div className="h-full w-full bg-black/50">
+            <div className="relative">
+              <div className="absolute grid place-items-end">
+                <div className=" text-right md:w-1/4 pr-8">
+                  <Typography variant="h1" color="white" className="mb-4 text-3xl md:text-4xl lg:text-5xl mt-16">
+                    Recycle Your Clothes
+                  </Typography>
+                  <Typography variant="lead" color="white" className="mb-12 opacity-80 drop-shadow-2xl text-xl">
+                    We have to start thinking about the future of our planet. The fashion industry is one of the most polluting industries in the world. We want to help you recycle your clothes and give them a second life.
+                  </Typography>
+                  <div className="flex justify-center gap-2">
+                    <Button className="text-sm btn btn-ghost text-white" onClick={showEnvironmentalInfo}>
+                      Learn More
+                    </Button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="bg-transparent h-full">
-          <Typography variant="h1" color="white" className="flex items-center justify-center mt-12">
+        <div className="bg-black h-full">
+          <Typography variant="h1" color="white" className="flex items-center justify-center">
             Our team
           </Typography>
           <div className="w-full justify-evenly flex mt-20">
