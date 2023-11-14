@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <>
       <div className='h-screen v-screen items-auto'>
-        <div className="flex font-sans space-x-4">
+        <div className="flex font-sans space-x-4 flex justify-center">
           <Link href="/products">
             <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">Store</button>
           </Link>
@@ -144,15 +144,15 @@ export default function Home() {
                 <Typography variant="h3" className=" flex items-center justify-center"> Create your own products </Typography>
                 <Typography variant="h5" className=" flex items-center justify-center"> Follow certain parameters, create a product and publish it!</Typography>
               </div>
-              <Image src={productImage} alt="Logo Revint" className="mt-12" />
+              <Image src={productImage} alt="Create-a-product" className="mt-12" />
             </div>
           </div>
           <div className="card bg-gray-700 shadow-xl">
             <div className="card-body">
               <Typography variant="h3" className=" flex items-center justify-center"> Add to favorites products that you like! </Typography>
               <Typography variant="h5" className=" flex items-center justify-center"> then visit them whenever you want</Typography>
-              <Image src={favoriteCard} alt="Logo Revint" className="mt-12" />
-              <Image src={favoriteCard} alt="Logo Revint" className="mt-12" />
+              <Image src={favoriteCard} alt="Favs" className="mt-12 rounded-3xl"/>
+              <Image src={favoriteCard} alt="Favs" className="mt-12 rounded-3xl"/>
             </div>
             {/* <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure> */}
           </div>

@@ -4,7 +4,7 @@ import logo from "public/logo-ReVint.png";
 export default function Header() {
   return (
     // sticky top-0 z-50 to make sitck at the top of the page
-    <div className="navbar bg-base-100 sticky top-0 z-50 h-[100px]">
+    <div className="navbar bg-black sticky top-0 z-50 h-[80px] border-b-2">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -44,9 +44,10 @@ export default function Header() {
         </div>
       </div>
       <div className="navbar-center">
-        <button className="btn btn-circle btn-ghost hover:opacity-90">
+        <button className="">
           <Link href="/">
-            <Image src={logo} alt="Logo Revint" width={400} height={400} />
+            {/* <Image src={logo} alt="Logo Revint" width={400} height={400} /> */}
+            <h1 className="btn btn-ghost white text-4xl hover:opacity-90"> Revint </h1>
           </Link>
         </button>
       </div>
@@ -67,28 +68,7 @@ export default function Header() {
             />
           </svg>
         </button>
-        <div className="tooltip" data-tip="Not available yet">
-        <button className="btn btn-ghost btn-circle">
-          <div className="indicator">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-              />
-            </svg>
-            <span className="badge badge-xs badge-primary indicator-item"></span>
-          </div>
-        </button>
-        </div>
-        <Link href="/profile">
+          <Link href="/profile">
           <button className="btn btn-ghost btn-circle">
             <div className="indicator">
               <svg

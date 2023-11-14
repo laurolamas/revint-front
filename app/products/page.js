@@ -125,8 +125,8 @@ export default function Product() {
     };
   
     return (
-      <>
-            <div className="flex items-center justify-center max-h-screen bg-cover bg-center" style={{ backgroundImage: "url(/miera_5-4-2.jpg)" }}>
+      <div className="bg-gray-900 h-full">
+            <div className="flex items-center justify-center max-h-screen">
           <button
             onClick={handlePrevClick}
             className="bg-blue-700 text-white py-2 px-4 rounded-l-full transition duration-300 ease-in-out hover:bg-orange-800 focus:outline-none focus:shadow-outline-orange active:bg-orange-900"
@@ -154,6 +154,6 @@ export default function Product() {
             &gt;
           </button>
         </div>
-      </>
+      </div>
     );
   }
