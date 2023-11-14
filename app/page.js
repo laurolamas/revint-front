@@ -61,13 +61,16 @@ export default function Home() {
           <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">About us</button>
           <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">Contact</button>
         </div>
-        <div className="ml-96 mt-64 absolute items-center justify-center"
-          style={{ opacity: 1.0 }}>
-          <Typography variant='h1' className="flex items-center justify-center text-center text-9xl">
+        { /*  */}
+        <div className="ml-4 md:ml-96 mt-16 md:mt-64 absolute items-center justify-center text-center">
+          <Typography variant='h1' className="text-4xl md:text-9xl">
             <WordTransition />
           </Typography>
-          <Typography variant="h3" className="flex justify-center mt-4 text-center">Our <span className="text-yellow-500">&nbsp;style</span>, our <span className="text-green-500">&nbsp;planet</span>, our future</Typography>
+          <Typography variant="h3" className="mt-4 text-lg md:text-2xl lg:text-3xl">
+            Our <span className="text-yellow-500">&nbsp;style</span>, our <span className="text-green-500">&nbsp;planet</span>, our future
+          </Typography>
         </div>
+
         <div className="relative bg-cover bg-full h-full flex items-center">
           <video className="relative inset-0 w-full h-full object-cover"
             autoPlay
