@@ -1,15 +1,86 @@
-"use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import UploadProductForm from "./uploadProductForm";
 import Modal from "./modal";
 
 export default function Card({ product, mode }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [showModal, setShowModal] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
+  const [favProducts, setFavProducts] = useState([]);
+
+  useEffect(() => {
+    fetchUserInfo();
+  }, []);
+
+  const fetchUserInfo = async () => {
+    try {
+      const res = await fetch(`http://localhost:8080/users/profile`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      });
+
+      const profileData = await res.json();
+
+      setUserInfo(profileData);
+      setFavProducts(profileData.favProducts || []); // Ensure favProducts is initialized
+    } catch (error) {
+      console.error("Error fetching user info:", error);
+    }
+  };
+
+  const addFavourites = async (product_id) => {
+    try {
+      // Make the PUT request
+      const res = await fetch(`http://localhost:8080/users/`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({
+          favProducts: [...favProducts, product_id],
+        }),
+      });
+
+      // Handle response as needed
+      if (!res.ok) {
+        console.error("Error updating user info:", res.statusText);
+        return;
+      }
+
+      // Update favProducts state after successful update
+      setFavProducts([...favProducts, product_id]);
+    } catch (error) {
+      console.error("Error adding favourites:", error);
+    }
+  };
+
+  const deleteFavourites = async (product_id) => {
+    try {
+      // Make the PUT request
+      const res = await fetch(`http://localhost:8080/users/`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({
+          favProducts: favProducts.filter((productId) => productId !== product_id),
+        }),
+      });
+
+      // Handle response as needed
+      if (!res.ok) {
+        console.error("Error updating user info:", res.statusText);
+        return;
+      }
+
+      // Update favProducts state after successful update
+      setFavProducts(favProducts.filter((productId) => productId !== product_id));
+    } catch (error) {
+      console.error("Error deleting favourites:", error);
+    }
+  };
 
   const handleNextSlide = () => {
-    if (currentSlide == product.images.length - 1) {
+    if (currentSlide === product.images.length - 1) {
       setCurrentSlide(0);
     } else {
       setCurrentSlide(currentSlide + 1);
@@ -17,14 +88,14 @@ export default function Card({ product, mode }) {
   };
 
   const handlePrevSlide = () => {
-    if (currentSlide == 0) {
+    if (currentSlide === 0) {
       setCurrentSlide(product.images.length - 1);
     } else {
       setCurrentSlide(currentSlide - 1);
     }
   };
 
-  const handleEditProduct = () => {};
+  const handleEditProduct = () => { };
 
   // return (
   //   <div className="group card w-96 bg-base-100 shadow-xl sm:m-10 hover:cursor-pointer">
@@ -91,23 +162,17 @@ export default function Card({ product, mode }) {
   // );
 
   return (
-    <a
-      key={product._id}
-      href={`/product/${product._id}`}
-      className="group w-full"
-    >
+    <a key={product._id} href={`/product/${product._id}`} className="group w-full">
       <div className="aspect-h-1 aspect-w-1 w-full relative overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
         <img
-          src={product.images[0]}
+          src={product.images[currentSlide]}
           alt={product.name}
           className="h-full w-full object-cover object-center group-hover:opacity-75"
         />
         <div className="absolute inset-0 flex items-center justify-center">
           {product.sold && (
             <div className="absolute bottom-0 left-0 px-4 py-4 bg-gray-500/50">
-              <p className="text-center font-extrabold text-3xl text-yellow-300">
-                SOLD
-              </p>
+              <p className="text-center font-extrabold text-3xl text-yellow-300">SOLD</p>
             </div>
           )}
           <div className="absolute bottom-0 right-0 px-3 py-2">
@@ -116,12 +181,16 @@ export default function Card({ product, mode }) {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                alert("TODO: Add to favorites");
+                if (favProducts.some((p) => p._id === product._id)) {
+                  deleteFavourites(product._id);
+                } else {
+                  addFavourites(product._id);
+                }
               }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className={`h-6 w-6 ${favProducts.some((p) => p._id === product._id) ? 'text-red-500' : 'text-gray-500'}`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
