@@ -125,7 +125,7 @@ export default function Product() {
     };
   
     return (
-      <div className="bg-gray-900 h-full">
+      <div className="min-h-screen flex items-center justify-center bg-cover bg-center bg-black/25" style={{ backgroundImage: "url(/table.jpg)" }}>
             <div className="flex items-center justify-center max-h-screen">
           <button
             onClick={handlePrevClick}
