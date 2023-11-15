@@ -129,7 +129,7 @@ export default function Product() {
             <div className="flex items-center justify-center max-h-screen">
           <button
             onClick={handlePrevClick}
-            className="bg-blue-700 text-white py-2 px-4 rounded-l-full transition duration-300 ease-in-out hover:bg-orange-800 focus:outline-none focus:shadow-outline-orange active:bg-orange-900"
+            className="btn btn-circle"
           >
             &lt;
           </button>
@@ -149,7 +149,7 @@ export default function Product() {
           </div>
           <button
             onClick={handleNextClick}
-            className="bg-blue-700 text-white py-2 px-4 rounded-r-full transition duration-300 ease-in-out hover:bg-orange-800 focus:outline-none focus:shadow-outline-orange active:bg-orange-900"
+            className="btn btn-circle"
           >
             &gt;
           </button>

@@ -57,8 +57,12 @@ export default function Header() {
             <Link href="/products">
               <button className="text-sm btn btn-ghost text-white hover:bg-sky-900">Store</button>
             </Link>
-            <a className="text-sm btn btn-ghost text-white hover:bg-sky-900">About us</a>
-            <a className="text-sm btn btn-ghost text-white hover:bg-sky-900">Contact</a>
+            <Link href="/about">
+            <button className="text-sm btn btn-ghost text-white animate-slide-in hover:bg-sky-900">About us</button>
+            </Link>
+            <Link href="/login">
+              <button className="text-sm btn btn-ghost text-white animate-pulse hover:bg-sky-900">Login</button>
+            </Link>
             <div className="relative">
               <a
                 type="button"

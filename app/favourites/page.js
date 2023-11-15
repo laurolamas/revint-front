@@ -27,7 +27,7 @@ export default function Home() {
 
     return (
         <>
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center mt-32">
                 {products.map((product) => (
                     <Card product={product} key={product._id} deleteFavourite={deleteFavourite} />
                 ))}

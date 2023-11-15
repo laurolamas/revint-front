@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Home() {
     return (
-      <div className="hero max-h-screen bg-base-200">
+      <div className="min-h-screen flex items-center justify-center bg-cover bg-center mt-32" style={{ backgroundImage: "url(/men.jpg)" }}>
         <div className="hero-content flex-wrap lg:flex-row">
           <div>
             <h1 className="text-5xl font-bold">ReVint</h1>

@@ -14,7 +14,7 @@ export default function ContactSeller() {
   return (
     <div className="page-container">
       <form
-        className="md:w-full w-full p-10 m-10 border border-gray-300 rounded-md md:max-w-3xl"
+        className="md:w-full w-full p-20 m-10 border border-yellow-300 rounded-md md:max-w-5xl"
         onSubmit={handleSubmit}
       >
         <h2 className="text-2xl font-bold mb-4 text-white">Contact Seller</h2>

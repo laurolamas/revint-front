@@ -26,3 +26,10 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Media query para pantallas más pequeñas (hasta 768px) */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px; /* Ejemplo de ajuste de tamaño de fuente para pantallas más pequeñas */
+  }
+}

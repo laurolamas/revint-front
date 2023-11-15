@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="hero max-h-screen bg-base-200">
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url(/clothes.jpg)" }}>
       <div className="hero-content flex-wrap lg:flex-row">
         <div>
-          <h1 className="text-5xl font-bold">ReVint</h1>
-          <p className="py-6">
-            Inicio de sesión
+          <h1 className="text-5xl font-bold text-center">ReVint</h1>
+          <p className="py-6 text-center">
+            Session Login
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 text-center">

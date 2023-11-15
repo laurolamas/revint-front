@@ -36,7 +36,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div>
+    <div className="mt-32 bg-cover bg-center" style={{backgroundImage: "url(/walkin.jpeg)" }}>
       <h1>Profile Page</h1>
       <h2>User Info</h2>
       <p>{profileData.name}</p>
