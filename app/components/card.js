@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 export default function Card({ product, isFavorite, favorites, setFavorites }) {
 
@@ -28,7 +29,7 @@ export default function Card({ product, isFavorite, favorites, setFavorites }) {
 
 
   return (
-    <a
+    <Link
       key={product._id}
       href={`/product/${product._id}`}
       className="group w-full"
@@ -73,6 +74,6 @@ export default function Card({ product, isFavorite, favorites, setFavorites }) {
 
       <h3 className="mt-4 text-sm text-gray-100">{product.name}</h3>
       <p className="mt-1 text-lg font-medium text-gray-300">{product.price}</p>
-    </a>
+    </Link>
   );
 }

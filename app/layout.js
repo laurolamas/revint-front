@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       <body>
         {!isLogin && <Header />}
         {children}
-        {!isLogin && <Footer />}
+        {/*!isLogin && <Footer />*/}
       </body>
     </html>
   );

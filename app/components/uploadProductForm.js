@@ -64,10 +64,10 @@ export default function UploadProductForm({ mode, product }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="md:w-full h-full w-full p-10 m-10 border border-gray-300 rounded-md max-w-sm md:max-w-3xl"
+      className="p-10 rounded-md md:flex md:justify-around gap-5 flex flex-col"
     >
-      <div className="md:flex md:justify-around">
-        <div className="flex-col">
+      <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex flex-col gap-3">
           <label>Name:</label>
           <div>
             <input
@@ -97,7 +97,7 @@ export default function UploadProductForm({ mode, product }) {
             />
           </div>
         </div>
-        <div className="flex-col">
+        <div className="flex flex-col gap-3">
           <label>Condition:</label>
           <div>
             <input
@@ -125,12 +125,12 @@ export default function UploadProductForm({ mode, product }) {
               onChange={(e) => setImages(e.target.files)}
             />
           </div>
-          <div className="pt-3">
-            <button className="btn w-full max-w-xs" type="submit">
-              Create Product
-            </button>
-          </div>
         </div>
+      </div>
+      <div className="pt-3">
+        <button className="btn w-full max-w-xs" type="submit">
+          Create Product
+        </button>
       </div>
     </form>
   );
