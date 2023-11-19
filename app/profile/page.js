@@ -175,8 +175,19 @@ export default function ProfilePage() {
             <p className="text-xl">📍{profileData.city}</p>
           </div>
         </div>
+        <div>
+          <button
+            className="btn"
+            onClick={() => document.getElementById("my_modal-5").showModal()}
+          >
+            Create a product
+          </button>
+          <Modal id="my_modal-5" title="Create a product">
+            <UploadProductForm mode={"create"} />
+          </Modal>
+        </div>
         {displayProducts(userProducts)}
-      </div>
+      </div >
     )
   );
 }

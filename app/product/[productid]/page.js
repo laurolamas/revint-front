@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Modal from "../../components/modal";
 
 export default function Page({ params }) {
   const [product, setProduct] = useState(undefined);
@@ -137,7 +138,19 @@ export default function Page({ params }) {
             </div>
           )}
           <div className="flex flex-row justify-center">
-            <button className="btn btn-primary m-3">Contact seller</button>
+            <button
+              className="btn btn-primary m-3"
+              onClick={() => document.getElementById("my_modal-3").showModal()}>Contact seller</button>
+            <Modal id="my_modal-3" title="Show Seller Info">
+              <div className="flex flex-col items-center mt-5">
+                <h1>
+                  <p className="text-xl">👤 : </p>
+                  <p className="text-xl">📍: </p>
+                  <p className="text-xl">📧 : </p>
+                  <p className="text-xl">📞 : </p>
+                </h1>
+              </div>
+            </Modal>
             {isFavorite ? ( // if isFavorite is true
               <button className="btn btn-primary m-3" onClick={(e) => { removeFromFavorites(e) }}>Remove from Favorite</button>
             ) : (
