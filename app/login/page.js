@@ -16,6 +16,8 @@ export default function Home() {
       credentials: "include",
     });
 
+    console.log(res);
+
     if (res.ok) {
       window.location.href = "/";
     }
