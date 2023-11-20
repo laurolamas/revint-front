@@ -17,6 +17,7 @@ export default function Home() {
     });
 
     console.log(res);
+    console.log(res.headers.get("set-cookie"));
 
     if (res.ok) {
       window.location.href = "/";
