@@ -7,7 +7,7 @@ export default function Home() {
     event.preventDefault();
     const username = event.target[0].value;
     const password = event.target[1].value;
-    const res = await fetch("http://localhost:8080/auth/login", {
+    const res = await fetch("/api/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {
@@ -16,12 +16,9 @@ export default function Home() {
       credentials: "include",
     });
 
-    console.log(res);
-    console.log(res.headers.get("set-cookie"));
-
-    if (res.ok) {
-      window.location.href = "/";
-    }
+    // if (res.ok) {
+    //   window.location.href = "/";
+    // }
   };
 
   return (
