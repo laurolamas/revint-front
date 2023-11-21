@@ -1,13 +1,12 @@
 "use client";
 import Link from "next/link";
-import { parse } from "cookie";
 
 export default function Home() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const username = event.target[0].value;
     const password = event.target[1].value;
-    const res = await fetch("/api/login", {
+    const res = await fetch("http://localhost:8080/auth/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: {
@@ -16,9 +15,9 @@ export default function Home() {
       credentials: "include",
     });
 
-    // if (res.ok) {
-    //   window.location.href = "/";
-    // }
+    if (res.ok) {
+      window.location.href = "/";
+    }
   };
 
   return (
